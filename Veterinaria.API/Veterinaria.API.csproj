@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Veterinaria.Shared\Veterinaria.Shared.csproj" />
   </ItemGroup>
 
 </Project>

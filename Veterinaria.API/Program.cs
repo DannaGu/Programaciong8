@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Veterinaria.API.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,7 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+//El servicio swagger nos sirve para probar los controladore sy para documentar el API
 builder.Services.AddSwaggerGen();
+
+//Inyección de dependencia
+builder.Services.AddDbContext<DataContext>(x=>
+x.UseSqlServer("name= DefaultConnection"));
 
 var app = builder.Build();
 
