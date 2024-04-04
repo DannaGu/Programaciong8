@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Veterinaria.Shared.Entities
@@ -37,8 +38,10 @@ namespace Veterinaria.Shared.Entities
         public string Address { get; set; }
 
         /*Interpolación de cadenas*/
-        public string FullName => $"{FirstName}{LastName}";  
+        public string FullName => $"{FirstName}{LastName}";
 
-
+        //la entidad Owner da su clave foránea a esta entidad
+        [JsonIgnore]
+        public ICollection<Agenda> Agendas { get; set; }
     }
 }
